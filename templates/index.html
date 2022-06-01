@@ -1,0 +1,133 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Header -->
+<div class="jumbotron text-center">
+  <h1 class="display-4 mt-5">Plant Health Prediction</h1>
+  <p class="lead">
+    An <span class="font-weight-bold">AI</span> based plant health prediction
+    algorithm with the help of the plant leaf.
+  </p>
+  <hr class="my-4" />
+  <p>
+    It uses Resnet 50 model to distinguish between fresh or diseased potato leaf.
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-md" href="#features" role="button"
+      >Explore features</a
+    >
+    <a class="btn btn-warning btn-md" href="#predictor" role="button"
+      >Predict Now!</a
+    >
+  </p>
+</div>
+
+<div class="container h-100 text-center">
+  <h2 id="predictor" class="mb-3">Upload Image</h2>
+
+  <div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+      <label for="imageUpload" class="upload-label"> Choose... </label>
+      <input
+        type="file"
+        name="file"
+        id="imageUpload"
+        accept=".png, .jpg, .jpeg"
+      />
+    </form>
+
+    <div class="image-section" style="display: none">
+      <div class="img-preview">
+        <div id="imagePreview"></div>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary btn-lg" id="btn-predict">
+          Predict!
+        </button>
+      </div>
+    </div>
+
+    <div class="loader" style="display: none"></div>
+
+    <h3 id="result">
+      <span> </span>
+    </h3>
+  </div>
+</div>
+
+<div class="bg-light">
+  <div class="container h-100" id="features">
+    <div class="row">
+      <div class="col-12 col-md-6 p-3">
+        <div class="card mr-2" style="width: 20rem">
+          <h3 class="card-header text-info">Features</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Based on potato leaf.</li>
+            <li class="list-group-item">Has an accuracy of 98%.</li>
+            <li class="list-group-item">Built using Resnet 50 model.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 d-flex">
+        <div class="card mt-3" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="{{ url_for('static', filename='img/fresh.jpg') }}"
+            alt="fresh"
+          />
+          <div class="card-body p-2 pb-0">
+            <h5 class="card-title text-center">Fresh</h5>
+          </div>
+        </div>
+        <div class="card mt-3 ml-3" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="{{ url_for('static', filename='img/diseased.jpg') }}"
+            alt="diseased"
+          />
+          <div class="card-body p-2 pb-0">
+            <h5 class="card-title text-center">Diseased</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact">
+<div class="container h-100" id="contact">
+  <h1 class="mt-3 text-white text-center py-5">CONTRIBUTORS</h1>
+  <div class="row">
+    <div class="col-12 col-md-3 px-3 pb-2">
+      <div class="card d-flex text-center p-3 bg-dark text-light">
+        <h4>Aditya Kumar</h4>
+        <div class="text-muted">2018041083</div>
+        <div class="subtext">E.C.E. Final Year</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-3 pb-2">
+      <div class="card d-flex text-center p-3 bg-dark text-light">
+        <h4>Shreyash Sharma</h4>
+        <div class="text-muted">2018041024</div>
+        <div class="subtext">E.C.E. Final Year</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-3 pb-2">
+      <div class="card d-flex text-center p-3 bg-dark text-light">
+        <h4>Shivam Jaiswal</h4>
+        <div class="text-muted">2018041072</div>
+        <div class="subtext">E.C.E. Final Year</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-3 pb-2">
+      <div class="card d-flex text-center p-3 bg-dark text-light">
+        <h4>Aditya Kumar</h4>
+        <div class="text-muted">2018041095</div>
+        <div class="subtext">E.C.E. Final Year</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
