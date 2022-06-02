@@ -65,7 +65,7 @@ def model_predict(img_path, model):
     if preds==0:
         preds="The leaf is diseased potato leaf"
     elif preds==1:
-        preds="The leaf is fresh potato plant"
+        preds="The leaf is fresh potato leaf"
     # elif preds==2:
     #     preds="The leaf is fresh cotton leaf"
     # else:
